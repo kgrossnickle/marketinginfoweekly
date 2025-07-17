@@ -1,6 +1,6 @@
 ---
 layout: page
-title: MarketingInfoWeekly 
+title: MarketersWeeklyInfo 
 permalink: /about
 comments: true
 ---

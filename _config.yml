@@ -1,7 +1,7 @@
 # Site
-name: "Marketing Info Weekly"
-title: "Marketing Info Weekly"
-description: "MarketingInfoWeekly. Best news in marketing!"
+name: "Marketers Weekly Info"
+title: "Marketers Weekly Info"
+description: "Marketers Weekly Info. Your weekly dose of marketing insights, tips, and trends."
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/logo.png'
 baseurl: ""
@@ -17,19 +17,20 @@ authors:
     name: Sal
     display_name: Sal
     gravatar: e56154546cf4be74e393c62d1ae9f9d4
-    email: Sal@MarketingInfoWeekly.com
-    web: https://www.wowthemes.net
+    avatar: 'assets/images/sal.jpeg'
+    email: Sal@MarketersWeeklyInfo.com
+    web: https://www.MarketersWeeklyInfo.com
     twitter: https://x.com/salgoodwin
-    description: "Author on MarketingInfoWeekly. I believe in the power of great design and user experience empowering Marketing"
+    description: "Author on MarketersWeeklyInfo. I believe in the power of great design and user experience empowering Marketing"
   john:
     name: John
     display_name: John    
-    avatar: 'assets/images/avatar.png'
+    avatar: 'assets/images/john.png'
     gravatar: b1cc14991db7a456fcd761680bbc8f81
-    email: John@MarketingInfoWeekly.com
-    web: https://marketinginfoweekly.com
+    email: John@MarketersWeeklyInfo.com
+    web: https://MarketersWeeklyInfo.com
     twitter: https://x.com/JMGreerWriter
-    description: "Author on MarketingInfoWeekly. I believe in the power of great design and user experience empowering Marketing"
+    description: "Author on MarketersWeeklyInfo. I believe in the power of great design and user experience empowering Marketing"
 
 # Plugins
 plugins:

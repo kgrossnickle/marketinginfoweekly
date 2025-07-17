@@ -23,19 +23,21 @@ post_class: post-template
 
                 <!-- Author Box -->
                 {% if page.author %}
-                <div class="row post-top-meta">
-                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
-                        {% if author.avatar %}
-                        <img class="author-thumb" src="{{site.baseurl}}/{{ author.avatar }}" alt="{{ author.display_name }}">
-                        {% else %}
-                        <img class="author-thumb" src="https://www.gravatar.com/avatar/{{ author.gravatar }}?s=250&d=mm&r=x" alt="{{ author.display_name }}">
-                        {% endif %}
+                    <div class="row post-top-meta align-items-center">
+                        <div class="col-auto text-center">
+                            {% if author.avatar %}
+                            <img class="author-thumb  shadow" src="{{site.baseurl}}/{{ author.avatar }}" alt="{{ author.display_name }}" style="width:64px; height:64px; object-fit:cover;">
+                            {% else %}
+                            <img class="author-thumb  shadow" src="https://www.gravatar.com/avatar/{{ author.gravatar }}?s=250&d=mm&r=x" alt="{{ author.display_name }}" style="width:64px; height:64px; object-fit:cover;">
+                            {% endif %}
+                        </div>
+                        <div class="col text-center text-md-left ml-0 pl-0">
+                            <a target="_blank" class="link-dark" href="{{ author.web }}">{{ author.display_name }}</a>
+                            <a target="_blank" href="{{ author.twitter }}" class="btn follow">Follow</a>
+                            <span class="author-description">{{ author.description }}</span>
+                        </div>
                     </div>
-                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
-                        <a target="_blank" class="link-dark" href="{{ author.web }}">{{ author.display_name }}</a><a target="_blank" href="{{ author.twitter }}" class="btn follow">Follow</a>
-                        <span class="author-description">{{ author.description }}</span>
-                    </div>
-                </div>
+                    {% else %}
                 {% endif %}
 
                 <!-- Post Title -->
@@ -51,13 +53,22 @@ post_class: post-template
 
             <!-- Post Featured Image -->
             {% if page.image %}
-
-            {% if site.lazyimages == "enabled" %}
-            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="{% if page.image contains "://" %}{{ page.image }}{% else %}{{ site.baseurl }}/{{ page.image }}{% endif %}" alt="{{ page.title }}">
-            {% else %}
-            <img class="featured-image img-fluid" src="{% if page.image contains "://" %}{{ page.image }}{% else %}{{ site.baseurl }}/{{ page.image }}{% endif %}" alt="{{ page.title }}">
-            {% endif %}
-
+                <div class="d-flex justify-content-center my-4">
+                    {% if site.lazyimages == "enabled" %}
+                    <img 
+                        class="featured-image img-fluid lazyimg rounded shadow" 
+                        style="max-width:700px; max-height:400px; width:100%; height:auto; object-fit:cover;" 
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" 
+                        data-src="{% if page.image contains '://' %}{{ page.image }}{% else %}{{ site.baseurl }}/{{ page.image }}{% endif %}" 
+                        alt="{{ page.title }}">
+                    {% else %}
+                    <img 
+                        class="featured-image img-fluid rounded shadow" 
+                        style="max-width:700px; max-height:400px; width:100%; height:auto; object-fit:cover;" 
+                        src="{% if page.image contains '://' %}{{ page.image }}{% else %}{{ site.baseurl }}/{{ page.image }}{% endif %}" 
+                        alt="{{ page.title }}">
+                    {% endif %}
+                </div>
             {% endif %}
             <!-- End Featured Image -->
 
@@ -108,6 +119,7 @@ post_class: post-template
             <!-- End Categories -->
 
             <!-- Post Tags -->
+            {% if page.tags %}
             <div class="after-post-tags">
                 <ul class="tags">
                     {% assign sortedTags = page.tags | sort %}
@@ -118,6 +130,7 @@ post_class: post-template
                     {% endfor %}
                 </ul>
             </div>
+            {% endif %}
             <!-- End Tags -->
 
             <!-- Prev/Next -->
